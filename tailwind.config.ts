@@ -6,7 +6,7 @@ export default {
     extend: {
       fontFamily: {
         sans: [
-          '"Inter"',
+          '"Barlow Semi Condensed"',
           "ui-sans-serif",
           "system-ui",
           "sans-serif",
@@ -15,6 +15,19 @@ export default {
           '"Segoe UI Symbol"',
           '"Noto Color Emoji"',
         ],
+      },
+      colors: {
+        "scissor-from": "hsl(var(--scissor-from))",
+        "scissor-to": "hsl(var(--scissor-to))",
+        "paper-from": "hsl(var(--paper-from))",
+        "paper-to": "hsl(var(--paper-to))",
+        "rock-from": "hsl(var(--rock-from))",
+        "rock-to": "hsl(var(--rock-to))",
+        dark: "hsl(var(--dark))",
+        grey: "hsl(var(--grey))",
+        outline: "hsl(var(--outline))",
+        "radial-from": "hsl(var(--radial-from))",
+        "radial-to": "hsl(var(--radial-to))",
       },
     },
   },

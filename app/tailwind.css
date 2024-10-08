@@ -10,3 +10,23 @@ body {
     color-scheme: dark;
   }
 }
+
+@layer base {
+  :root {
+    --scissor-from: 39deg 89% 49%;
+    --scissor-to: 40deg 84% 53%;
+
+    --paper-from: 230, 89%, 62%;
+    --paper-to: 230, 89%, 65%;
+
+    --rock-from: 349, 71%, 52%;
+    --rock-to: 349, 70%, 56%;
+
+    --dark: 229deg, 25%, 31%;
+    --grey: 229deg, 64%, 46%;
+    --outline: 217deg, 16%, 45%;
+
+    --radial-from: 214deg, 47%, 23%;
+    --radial-to: 237deg, 49%, 15%;
+  }
+}
