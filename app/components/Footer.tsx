@@ -14,23 +14,26 @@ export default function Footer() {
   return (
     <>
       <dialog
-        className="rounded-lg mx-4 md:mx-auto p-8 overflow-auto text-off-white drop-shadow-lg bg-white"
+        className="md:rounded-lg m-0 md:m-auto md:p-8 overflow-auto text-off-white drop-shadow-lg bg-white min-w-[100vw] md:min-w-fit md:min-h-fit min-h-[100vh] md:h-fit md:w-fit h-full"
         ref={modalRef}
       >
-        <div className="flex justify-between items-center mb-8">
-          <h1 className="text-3xl font-bold text-dark">RULES</h1>
+        <div className="grid gap-4 [grid-template-areas:'header''main''close'] md:[grid-template-areas:'header_close''main_main'] justify-center h-full md:h-fit pt-12 px-8 md:px-0 md:pt-0">
+          <h1 className="text-3xl font-bold text-dark [grid-area:header] justify-self-center md:justify-self-start">
+            RULES
+          </h1>
           <button
-            className="text-5xl leading-8 text-dark"
+            className="text-5xl leading-8 text-dark w-fit [grid-area:close] justify-self-center md:justify-self-end mb-4"
             aria-label="close"
             onClick={() => closeDialog()}
           >
             &times;
           </button>
+          <img
+            src="./image-rules.svg"
+            alt="The rules are as follows: Paper beats rock, rock beats scissors, scissors beats paper."
+            className="[grid-area:main]"
+          />
         </div>
-        <img
-          src="./image-rules.svg"
-          alt="The rules are as follows: Paper beats rock, rock beats scissors, scissors beats paper."
-        />
       </dialog>
       <footer className="flex justify-center md:justify-end mb-4 w-full max-w-5xl">
         <button
