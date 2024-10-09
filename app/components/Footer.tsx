@@ -26,7 +26,7 @@ export default function Footer() {
             aria-label="close"
             onClick={() => closeDialog()}
           >
-            &times;
+            <img src="./icon-close.svg" alt="close icon" />
           </button>
           <img
             src="./image-rules.svg"
