@@ -1,5 +1,6 @@
 import type { MetaFunction } from "@remix-run/node";
 import { useState } from "react";
+import Footer from "~/components/Footer";
 import Score from "~/components/Score";
 
 export const meta: MetaFunction = () => {
@@ -24,11 +25,7 @@ export default function Index() {
         <Score score={score} />
       </header>
       <main>{/* Main content here */}</main>
-      <footer className="flex justify-center md:justify-end mb-4 w-full max-w-5xl">
-        <button className="border-white border-2 rounded-lg py-2 px-6 text-white font-semibold tracking-wider">
-          RULES
-        </button>
-      </footer>
+      <Footer />
     </div>
   );
 }

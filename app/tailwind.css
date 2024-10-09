@@ -30,3 +30,49 @@ body {
     --radial-to: 237deg, 49%, 15%;
   }
 }
+
+/*
+  Took this from my personal project specifically:
+  https://github.com/edmondwong6279/ew.monorepo/blob/main/apps/ew.website/app/globals.css#L19-L60
+ */
+
+dialog {
+  display: none;
+  opacity: 0;
+  scale: 0.7;
+
+  transition-timing-function: ease-in-out;
+  transition-property: display scale opacity;
+  transition-duration: 0.5s;
+  transition-behavior: allow-discrete;
+}
+
+dialog[open] {
+  display: block;
+  opacity: 1;
+  scale: 1;
+
+  @starting-style {
+    opacity: 0;
+    scale: 1.2;
+  }
+}
+
+dialog::backdrop {
+  opacity: 0;
+  background-color: black;
+
+  transition-property: opacity display overlay;
+  transition-duration: 0.5s;
+  transition-behavior: allow-discrete;
+}
+
+dialog[open]::backdrop {
+  opacity: 0.5;
+}
+
+@starting-style {
+  dialog[open]::backdrop {
+    opacity: 0;
+  }
+}
