@@ -29,6 +29,9 @@ export default {
         "radial-from": "hsl(var(--radial-from))",
         "radial-to": "hsl(var(--radial-to))",
       },
+      boxShadow: {
+        "inner-xl": "inset 0 5px 2px 0 rgb(0 0 0 / 0.25);",
+      },
     },
   },
   plugins: [],

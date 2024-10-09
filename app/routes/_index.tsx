@@ -1,6 +1,7 @@
 import type { MetaFunction } from "@remix-run/node";
 import { useState } from "react";
 import Footer from "~/components/Footer";
+import Game from "~/components/Game";
 import Score from "~/components/Score";
 
 export const meta: MetaFunction = () => {
@@ -14,7 +15,7 @@ export const meta: MetaFunction = () => {
 };
 
 export default function Index() {
-  const [score] = useState(0);
+  const [score, setScore] = useState(0);
 
   return (
     <div className="flex flex-col h-screen items-center justify-between bg-dark gap-16 p-8 md:p-12">
@@ -24,7 +25,7 @@ export default function Index() {
         </div>
         <Score score={score} />
       </header>
-      <main>{/* Main content here */}</main>
+      <Game setScore={setScore} />
       <Footer />
     </div>
   );
