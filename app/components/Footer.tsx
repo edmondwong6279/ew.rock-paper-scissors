@@ -27,7 +27,10 @@ export default function Footer() {
             &times;
           </button>
         </div>
-        <img src="./image-rules.svg" alt="rules thing" />
+        <img
+          src="./image-rules.svg"
+          alt="The rules are as follows: Paper beats rock, rock beats scissors, scissors beats paper."
+        />
       </dialog>
       <footer className="flex justify-center md:justify-end mb-4 w-full max-w-5xl">
         <button
