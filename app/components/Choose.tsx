@@ -7,7 +7,7 @@ export default function Choose({
   setSelected: React.Dispatch<React.SetStateAction<options | null>>;
 }) {
   return (
-    <section className="grid gap-x-7 gap-y-3 relative w-full [grid-template-areas:'paper_scissors''rock_rock'] grid-rows-[1fr_1fr]">
+    <section className="grid gap-x-7 gap-y-3 m-auto max-w-xl relative w-full [grid-template-areas:'paper_scissors''rock_rock'] grid-rows-[1fr_1fr]">
       <img
         src="./bg-triangle.svg"
         alt="background"

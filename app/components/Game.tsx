@@ -1,5 +1,10 @@
-import { useEffect, useState } from "react";
-import { calculateScore, options, selectRandomOption } from "~/utils";
+import { useCallback, useEffect, useState } from "react";
+import {
+  calculateScore,
+  delayedCallback,
+  options,
+  selectRandomOption,
+} from "~/utils";
 import Choose from "./Choose";
 import Reveal from "./Reveal";
 
@@ -10,23 +15,41 @@ export default function Game({
 }) {
   const [selected, setSelected] = useState<options | null>(null);
   const [houseSelected, setHouseSelected] = useState<options | null>(null);
+  const [playerScore, setPlayerScore] = useState<number | null>(null);
+
+  const reset = useCallback(() => {
+    setSelected(null);
+    setHouseSelected(null);
+    setPlayerScore(null);
+  }, []);
 
   useEffect(() => {
     if (selected !== null) {
-      const houseOption = selectRandomOption();
-      const playerScore = calculateScore(selected, houseOption);
+      (async () => {
+        const houseOption = selectRandomOption();
+        const playerScore = calculateScore(selected, houseOption);
 
-      setTimeout(() => {
-        setHouseSelected(houseOption);
-        setScore((prev) => prev + playerScore);
-      }, 500);
+        await delayedCallback(() => {
+          setHouseSelected(houseOption);
+          setScore((prev) => prev + playerScore);
+        }, 500);
+
+        await delayedCallback(() => {
+          setPlayerScore(playerScore);
+        }, 500);
+      })();
     }
   }, [selected, setScore]);
 
   return (
-    <main className="w-full md:w-4/5 max-w-sm md:max-w-xl">
+    <main className="w-full md:w-full max-w-sm md:max-w-5xl">
       {selected !== null ? (
-        <Reveal selected={selected} houseSelected={houseSelected} />
+        <Reveal
+          selected={selected}
+          houseSelected={houseSelected}
+          playerScore={playerScore}
+          reset={reset}
+        />
       ) : (
         <Choose setSelected={setSelected} />
       )}

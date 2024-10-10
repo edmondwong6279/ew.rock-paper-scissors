@@ -19,6 +19,8 @@ export default function Icon({
         colour === "red" ? "border-red-500" : ""
       } ${className}`}
       onClick={onClick}
+      disabled={onClick === undefined}
+      aria-label={alt}
     >
       <img className="w-1/2" src={source} alt={alt} />
     </button>

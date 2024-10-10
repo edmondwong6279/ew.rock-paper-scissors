@@ -33,9 +33,27 @@ export const calculateScore = (player1: options, player2: options) => {
   return 0;
 };
 
+/**
+ * Returns a random item from the options enum
+ */
 export const selectRandomOption = () => {
   const values = Object.keys(options);
   const enumKey = values[Math.floor(Math.random() * values.length)];
   const choice = options[enumKey as keyof typeof options];
   return choice;
+};
+
+/**
+ * Executes a callback after a specified delay in ms.
+ *
+ * @param callback
+ * @param delay in ms
+ */
+export const delayedCallback = async (callback: () => void, delay: number) => {
+  await new Promise<void>((resolve) =>
+    setTimeout(() => {
+      callback();
+      return resolve();
+    }, delay),
+  );
 };
