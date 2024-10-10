@@ -1,5 +1,5 @@
 import type { MetaFunction } from "@remix-run/node";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Footer from "~/components/Footer";
 import Game from "~/components/Game";
 import Score from "~/components/Score";
@@ -15,7 +15,29 @@ export const meta: MetaFunction = () => {
 };
 
 export default function Index() {
-  const [score, setScore] = useState(0);
+  const [score, setScore] = useState<number>();
+
+  // Get the stored score from session storage if it exists
+  useEffect(() => {
+    const storedScore = sessionStorage.getItem("playerScore");
+    if (storedScore !== null) {
+      const storedScoreParsed = parseInt(storedScore);
+      if (isNaN(storedScoreParsed)) {
+        sessionStorage.removeItem("playerScore");
+      } else {
+        setScore(storedScoreParsed);
+        return;
+      }
+    }
+    setScore(0);
+  }, []);
+
+  // Update the session storage if score is a number
+  useEffect(() => {
+    if (score !== undefined) {
+      sessionStorage.setItem("playerScore", `${score}`);
+    }
+  }, [score]);
 
   return (
     <div className="flex flex-col min-h-screen items-center justify-between bg-dark gap-16 p-8 md:p-12 overflow-hidden">

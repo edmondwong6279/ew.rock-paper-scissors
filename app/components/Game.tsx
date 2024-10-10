@@ -11,7 +11,7 @@ import Reveal from "./Reveal";
 export default function Game({
   setScore,
 }: {
-  setScore: React.Dispatch<React.SetStateAction<number>>;
+  setScore: React.Dispatch<React.SetStateAction<number | undefined>>;
 }) {
   const [selected, setSelected] = useState<options | null>(null);
   const [houseSelected, setHouseSelected] = useState<options | null>(null);
@@ -31,7 +31,12 @@ export default function Game({
 
         await delayedCallback(() => {
           setHouseSelected(houseOption);
-          setScore((prev) => prev + playerScore);
+          setScore((prev) => {
+            if (prev) {
+              return prev + playerScore;
+            }
+            return playerScore;
+          });
         }, 500);
 
         await delayedCallback(() => {
