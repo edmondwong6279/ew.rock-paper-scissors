@@ -28,7 +28,7 @@ export default function Reveal({
             {playerScore === -1 && "YOU LOSE"}
           </h2>
           <button
-            className="max-w-60 w-full h-12 text-xl font-semibold bg-white rounded-md"
+            className="max-w-60 w-full h-12 text-xl font-semibold bg-white text-black rounded-md"
             onClick={() => {
               reset();
             }}
