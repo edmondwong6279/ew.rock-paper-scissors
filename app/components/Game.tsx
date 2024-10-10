@@ -1,12 +1,7 @@
 import { useEffect, useState } from "react";
+import { calculateScore, options, selectRandomOption } from "~/utils";
 import Choose from "./Choose";
 import Reveal from "./Reveal";
-
-export enum options {
-  "rock",
-  "paper",
-  "scissors",
-}
 
 export default function Game({
   setScore,
@@ -14,18 +9,26 @@ export default function Game({
   setScore: React.Dispatch<React.SetStateAction<number>>;
 }) {
   const [selected, setSelected] = useState<options | null>(null);
+  const [houseSelected, setHouseSelected] = useState<options | null>(null);
 
-  // Logic for the game can just sit in this component
   useEffect(() => {
-    setScore(0);
-  }, [setScore]);
+    if (selected !== null) {
+      const houseOption = selectRandomOption();
+      const playerScore = calculateScore(selected, houseOption);
+
+      setTimeout(() => {
+        setHouseSelected(houseOption);
+        setScore((prev) => prev + playerScore);
+      }, 500);
+    }
+  }, [selected, setScore]);
 
   return (
-    <main className="w-full md:w-4/5 max-w-xl">
-      {selected === null ? (
-        <Choose setSelected={setSelected} />
+    <main className="w-full md:w-4/5 max-w-sm md:max-w-xl">
+      {selected !== null ? (
+        <Reveal selected={selected} houseSelected={houseSelected} />
       ) : (
-        <Reveal selected={selected} />
+        <Choose setSelected={setSelected} />
       )}
     </main>
   );

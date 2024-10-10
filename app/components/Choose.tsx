@@ -1,5 +1,5 @@
 import Icon from "./Icon";
-import { options } from "./Game";
+import { options } from "~/utils";
 
 export default function Choose({
   setSelected,
@@ -18,7 +18,7 @@ export default function Choose({
         alt="rock icon"
         colour="red"
         onClick={() => {
-          setSelected(options.rock);
+          setSelected(options.ROCK);
         }}
         className="[grid-area:rock] z-10 justify-self-center self-end"
       />
@@ -27,7 +27,7 @@ export default function Choose({
         alt="paper icon"
         colour="blue"
         onClick={() => {
-          setSelected(options.paper);
+          setSelected(options.PAPER);
         }}
         className="[grid-area:paper] z-10 justify-self-start"
       />
@@ -36,7 +36,7 @@ export default function Choose({
         alt="scissors icon"
         colour="yellow"
         onClick={() => {
-          setSelected(options.scissors);
+          setSelected(options.SCISSORS);
         }}
         className="[grid-area:scissors] z-10 justify-self-end"
       />

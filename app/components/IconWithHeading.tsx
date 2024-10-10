@@ -1,4 +1,4 @@
-import { options } from "./Game";
+import { options } from "~/utils";
 import Icon from "./Icon";
 
 export default function IconWithHeading({
@@ -10,10 +10,10 @@ export default function IconWithHeading({
 }) {
   return (
     <div className="relative flex flex-col-reverse md:flex-col gap-4 justify-between items-center">
-      <h2 className="text-white font-semibold tracking-wider text-lg md:text-2xl">
+      <h2 className="text-white font-semibold tracking-wider text- md:text-2xl">
         {heading}
       </h2>
-      {selected === options.rock && (
+      {selected === options.ROCK && (
         <Icon
           source={"./icon-rock.svg"}
           alt="rock icon"
@@ -21,7 +21,7 @@ export default function IconWithHeading({
           className="cursor-default"
         />
       )}
-      {selected === options.paper && (
+      {selected === options.PAPER && (
         <Icon
           source={"./icon-paper.svg"}
           alt="paper icon"
@@ -29,7 +29,7 @@ export default function IconWithHeading({
           className="cursor-default"
         />
       )}
-      {selected === options.scissors && (
+      {selected === options.SCISSORS && (
         <Icon
           source={"./icon-scissors.svg"}
           alt="scissors icon"
