@@ -11,7 +11,7 @@ import Reveal from "./Reveal";
 export default function Game({
   setScore,
 }: {
-  setScore: React.Dispatch<React.SetStateAction<number | undefined>>;
+  setScore: React.Dispatch<React.SetStateAction<number>>;
 }) {
   const [selected, setSelected] = useState<options | null>(null);
   const [houseSelected, setHouseSelected] = useState<options | null>(null);

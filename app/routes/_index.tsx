@@ -15,22 +15,20 @@ export const meta: MetaFunction = () => {
 };
 
 export default function Index() {
-  const [score, setScore] = useState<number>();
-
-  // Get the stored score from session storage if it exists
-  useEffect(() => {
-    const storedScore = sessionStorage.getItem("playerScore");
-    if (storedScore !== null) {
-      const storedScoreParsed = parseInt(storedScore);
-      if (isNaN(storedScoreParsed)) {
-        sessionStorage.removeItem("playerScore");
-      } else {
-        setScore(storedScoreParsed);
-        return;
+  const [score, setScore] = useState<number>(() => {
+    if (typeof window !== "undefined") {
+      const storedScore = sessionStorage.getItem("playerScore");
+      if (storedScore !== null) {
+        const storedScoreParsed = parseInt(storedScore);
+        if (isNaN(storedScoreParsed)) {
+          sessionStorage.removeItem("playerScore");
+        } else {
+          return storedScoreParsed;
+        }
       }
     }
-    setScore(0);
-  }, []);
+    return 0;
+  });
 
   // Update the session storage if score is a number
   useEffect(() => {
