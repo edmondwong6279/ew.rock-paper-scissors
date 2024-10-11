@@ -49,16 +49,15 @@ export default function IconWithHeading({
         )}
         {radial && (
           <>
-            {[
-              { opacity: 0.06, scale: 1.5 },
-              { opacity: 0.04, scale: 2 },
-              { opacity: 0.02, scale: 2.5 },
-            ].map(({ opacity, scale }, idx) => (
-              <div
-                key={idx}
-                className={`absolute m-auto top-0 bottom-0 rounded-full pointer-events-none opacity-[${opacity}] bg-white w-32 md:w-64 h-32 md:h-64 scale-[${scale}]`}
-              />
-            ))}
+            <div
+              className={`absolute m-auto top-0 bottom-0 rounded-full pointer-events-none opacity-[0.06] bg-white w-32 md:w-64 h-32 md:h-64 scale-[1.5]`}
+            />
+            <div
+              className={`absolute m-auto top-0 bottom-0 rounded-full pointer-events-none opacity-[0.04] bg-white w-32 md:w-64 h-32 md:h-64 scale-[2]`}
+            />
+            <div
+              className={`absolute m-auto top-0 bottom-0 rounded-full pointer-events-none opacity-[0.02] bg-white w-32 md:w-64 h-32 md:h-64 scale-[2.5]`}
+            />
           </>
         )}
       </div>
