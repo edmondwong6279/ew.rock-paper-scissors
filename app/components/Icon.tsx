@@ -14,9 +14,9 @@ export default function Icon({
   return (
     <button
       className={`flex justify-center items-center bg-white rounded-full border-[15px] md:border-[30px] aspect-square w-32 md:w-64 h-32 md:h-64 shadow-inner-xl ${
-        colour === "blue" ? "border-blue-400" : ""
-      } ${colour === "yellow" ? "border-yellow-200" : ""} ${
-        colour === "red" ? "border-red-500" : ""
+        colour === "blue" ? "border-paper-from" : ""
+      } ${colour === "yellow" ? "border-scissor-from" : ""} ${
+        colour === "red" ? "border-rock-from" : ""
       } ${className}`}
       onClick={onClick}
       disabled={onClick === undefined}
